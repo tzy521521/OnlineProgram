@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Solution solution=new Solution();
 
-        char[] matrix="ABCESFCSADEE".toCharArray();
-        char[] str="ABCB".toCharArray();
+        char[] matrix="abceccdsedee".toCharArray();
+        char[] str="abcce".toCharArray();
         System.out.println(solution.hasPath(matrix,3,4,str));
     }
 }
