@@ -13,7 +13,8 @@ public class Solution {
         Node node=new Node(0,0);
         return movingCount(maxt,node,threshold);
     }
-    public int movingCount(boolean[][] maxt, Node node,int threshold ) {
+    //从方格开始进行广度优先遍历
+    private int movingCount(boolean[][] maxt, Node node,int threshold ) {
         Stack<Node> stack=new Stack<>();
         stack.push(node);
         maxt[node.i][node.j]=true;
@@ -21,6 +22,7 @@ public class Solution {
         while (!stack.isEmpty()){
             Node temp=stack.pop();
             num++;
+            //判断方格的左边方格是否可以进入。
             if (temp.i+1<maxt.length&&!maxt[temp.i+1][temp.j]){
                 int sum=total(temp.i+1)+total(temp.j);
                 if (sum<=threshold){
@@ -28,7 +30,7 @@ public class Solution {
                     maxt[temp.i+1][temp.j]=true;
                 }
             }
-
+            //判断方格的右边方格是否可以进入。
             if (temp.i-1>=0&&!maxt[temp.i-1][temp.j]){
                 int sum=total(temp.i-1)+total(temp.j);
                 if (sum<=threshold){
@@ -36,7 +38,7 @@ public class Solution {
                     maxt[temp.i-1][temp.j]=true;
                 }
             }
-
+            //判断方格的上边方格是否可以进入。
             if (temp.j+1<maxt[0].length&&!maxt[temp.i][temp.j+1]){
                 int sum=total(temp.i)+total(temp.j+1);
                 if (sum<=threshold){
@@ -44,7 +46,7 @@ public class Solution {
                     maxt[temp.i][temp.j+1]=true;
                 }
             }
-
+            //判断方格的下边方格是否可以进入。
             if (temp.j-1>=0&&!maxt[temp.i][temp.j-1]){
                 int sum=total(temp.i)+total(temp.j-1);
                 if (sum<=threshold){
@@ -55,7 +57,8 @@ public class Solution {
         }
         return num;
     }
-    public int total(int num){
+    //数位之和
+    private int total(int num){
         int sum=0;
         while (num!=0){
             sum+=num%10;
@@ -63,7 +66,8 @@ public class Solution {
         }
         return sum;
     }
-    public class Node{
+    //方格。
+    public static class Node{
         int i;
         int j;
 

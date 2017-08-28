@@ -13,10 +13,11 @@ public class Solution {
         return num;
     }
     private int inversePairs(int[] array,int[] copy,int start,int end){
+        //把长度为2的数组分解成长度为1的数组。
         if (start==end){
+            //此时前半段和后半段的逆序对都是0。
             return 0;
         }
-
         int lengh=(end-start)/2;
         int left=inversePairs(copy,array,start,start+lengh)%1000000007;
         int rigt=inversePairs(copy,array,start+lengh+1,end)%1000000007;
@@ -27,8 +28,7 @@ public class Solution {
         int j=end;
         //开始拷贝的位置
         int index=end;
-
-        //数组之间的逆序对。
+        //数组之间的逆序对。前半段和后半段都是递增排好序的。
         int count=0;
 
         while (i>=start&&j>=start+lengh+1){
@@ -45,7 +45,6 @@ public class Solution {
                 j--;
             }
         }
-
         for (;i>=start;i--){
             copy[index]=array[i];
             index--;

@@ -13,7 +13,6 @@ public class Solution {
         int flag=0;
         for (int i = 0; i <pushA.length ; i++) {
             stack.push(pushA[i]);
-            //短路特性，空栈是不可以查看栈顶元素的
             while (!stack.isEmpty()&&stack.peek()==popA[flag]){
                 stack.pop();
                 flag++;

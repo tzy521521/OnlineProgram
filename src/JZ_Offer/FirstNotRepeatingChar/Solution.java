@@ -1,6 +1,5 @@
 package JZ_Offer.FirstNotRepeatingChar;
 
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /**
@@ -26,9 +25,7 @@ public class Solution {
                 //linkedHashMap.getOrDefault()java8的API
                 //linkedHashMap.put(str.charAt(i),linkedHashMap.getOrDefault(str.charAt(i),0)+1);
             }
-            Iterator iter = linkedHashMap.entrySet().iterator();
-            while (iter.hasNext()){
-                Map.Entry<Character,Integer> entry=(Map.Entry<Character,Integer>)iter.next();
+            for (Map.Entry<Character,Integer> entry:linkedHashMap.entrySet()) {
                 if (entry.getValue()==1){
                     return str.indexOf(entry.getKey());
                 }

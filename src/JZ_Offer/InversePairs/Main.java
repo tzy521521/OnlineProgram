@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Solution solution=new Solution();
 
-        int[] data = {1, 2, 3, 4, 7, 6, 5};
-        System.out.println(solution.InversePairs(data)); // 3
+        int[] data = {7,5,6,4};
+        System.out.println(solution.InversePairs(data));
     }
 }

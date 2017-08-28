@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args) {
         Solution solution=new Solution();
 
-        int numbers[]={0,4,2,1,0};
-        int [] duplication=new int[numbers.length];
+        int numbers[]={2,1,3,1,4,5};
+        int [] duplication=new int[1];
         System.out.println(solution.duplicate(numbers,numbers.length,duplication));
+        System.out.println(duplication[0]);
     }
 }

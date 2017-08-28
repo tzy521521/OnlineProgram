@@ -1,34 +1,25 @@
 package JZ_Offer.Duplicate.Solution0;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Created by tzy on 2017/8/18.
+ * 数组中第一个重复的数字，需要额外的空间。
  */
 public class Solution {
     public boolean duplicate(int numbers[],int length,int [] duplication) {
-        if (numbers==null)
+        if (numbers==null){
+            duplication[0]=-1;
             return false;
-        LinkedHashMap<Integer,Integer> linkedHashMap=new LinkedHashMap<>();
-        for (int i = 0; i <length ; i++) {
-            if (linkedHashMap.containsKey(numbers[i])){
-                int val=linkedHashMap.get(numbers[i]);
-                val++;
-                linkedHashMap.put(numbers[i],val);
-            }else {
-                linkedHashMap.put(numbers[i],1);
-            }
         }
-        int k=0;
-        Iterator iter = linkedHashMap.entrySet().iterator();
-        while (iter.hasNext()){
-            Map.Entry entry = (Map.Entry)iter.next();
-            if ((int)entry.getValue()>1){
-                duplication[k++]=(int)entry.getKey();
+        HashMap<Integer,Integer> hashMap=new HashMap<>();
+        for (int num:numbers) {
+            if (hashMap.containsKey(num)){
+                duplication[0]=num;
                 return true;
             }
+            else
+                hashMap.put(num,1);
         }
         return false;
     }

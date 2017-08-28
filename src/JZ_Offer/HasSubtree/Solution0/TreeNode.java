@@ -1,4 +1,4 @@
-package JZ_Offer.HasSubtree.Solution2;
+package JZ_Offer.HasSubtree.Solution0;
 
 /**
  * Created by tzy on 2017/3/28.

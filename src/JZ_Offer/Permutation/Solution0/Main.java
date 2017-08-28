@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Solution solution=new Solution();
-        String string="abc";
+        String string="abccb";
         ArrayList<String> arrayList=solution.Permutation(string);
         System.out.println(arrayList);
     }

@@ -4,13 +4,14 @@ import java.util.LinkedList;
 
 /**
  * Created by tzy on 2017/8/18.
+ * 把只包含因子2、3和5的数称作丑数（Ugly Number）。习惯上我们把1当做是第一个丑数。
+ * 求按从小到大的顺序的第N个丑数。
+ * 分析：如果p是丑数，那么p=2^x * 3^y * 5^z，那么只要赋予x,y,z不同的值就能得到不同的丑数。
+ *       如果要顺序找出丑数，要知道下面几个特（fei）点（hua）。
+ * 1.那么2*p,3*p,5*p都是丑数，并且2*p<3*p<5*p
+ * 2.如果p<q, 那么2*p<2*q,3*p<3*q,5*p<5*q
  */
 public class Solution {
-    private int finMin(int num2, int num3, int num5) {
-        int min = Math.min(num2, Math.min(num3, num5));
-        return min == num2 ? 2 : min == num3 ? 3 : 5;
-    }
-
     public int GetUglyNumber_Solution(int index) {
         if (index < 1)
             return 0;
@@ -25,22 +26,23 @@ public class Solution {
             if (q==2){
                 int temp=q2.poll();
                 array[m++]=temp;
-
                 q2.add(temp*2);q3.add(temp*3);q5.add(temp*5);
             }
             if (q==3){
                 int temp=q3.poll();
                 array[m++]=temp;
-
                 q3.add(temp*3);q5.add(temp*5);
             }
             if (q==5){
                 int temp=q5.poll();
                 array[m++]=temp;
-
                 q5.add(temp*5);
             }
         }
         return array[index-1];
+    }
+    private int finMin(int num2, int num3, int num5) {
+        int min = Math.min(num2, Math.min(num3, num5));
+        return min == num2 ? 2 : min == num3 ? 3 : 5;
     }
 }

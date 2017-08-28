@@ -1,26 +1,22 @@
 package JZ_Offer.FindNumbersWithSum.Solution1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by tzy on 2017/3/24.
+ * 数组是递增排序的数组
  */
 public class Solution {
     public ArrayList<Integer> FindNumbersWithSum(int [] array, int sum) {
-        int low=0;
-        int height=array.length-1;
         ArrayList<Integer> arrayList=new ArrayList<>();
-        while (height>=low){
-            if (array[low]+array[height]>sum)
-                height--;
-            else if (array[height]+array[low]==sum){
+        for (int low=0;low<array.length-1;low++){
+            int temp=sum-array[low];
+            int flag=Arrays.binarySearch(array,low+1,array.length,temp);
+            if (flag>=0){
                 arrayList.add(array[low]);
-                arrayList.add(array[height]);
+                arrayList.add(array[flag]);
                 break;
-            }
-            else{
-                low++;
-                height=array.length-1;
             }
         }
         return arrayList;

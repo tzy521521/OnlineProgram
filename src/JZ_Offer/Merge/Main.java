@@ -1,4 +1,4 @@
-package JZ_Offer.Merge.Solution0;
+package JZ_Offer.Merge;
 
 /**
  * Created by tzy on 2017/8/27.
