@@ -37,16 +37,10 @@ public class Main {
             }
             String string1=input.next();
             int index=input.nextInt();
-            long start=System.nanoTime();
-
             ArrayList<String>brothers=Brothers(string1,arrayList);
             System.out.println(brothers.size());
             if (index<=brothers.size()&&index>0)
                 System.out.println(brothers.get(index-1));
-            long time=(System.nanoTime()-start);
-
-            System.out.println(time+" ns");
-            System.out.println(time/1_000_000+" ms");
         }
     }
 }
