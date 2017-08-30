@@ -7,21 +7,27 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        String string="int add(int x,int y){\n" +
+        /*
+        Scanner scanner=new Scanner(System.in);
+        while (scanner.hasNext()){
+            String string=scanner.nextLine();
+            System.out.println(isSame(string));
+        }
+         */
+        String strin="int add(int x,int y){\n" +
                 "        int sum=0;\n" +
                 "        sum=x+y;\n" +
                 "        return sum;\n" +
                 "    }";
-        System.out.println(isSame(string));
+        System.out.println(isSame(strin));
     }
     public static int isSame(String string){
-        string=string.replaceAll("int","");
         string=string.replaceAll("\\s+","");
-        String match="[a-zA-z]+\\([a-zA-z]+,[a-zA-z]+\\)\\{[a-zA-z]+=0;[a-zA-z]+=[a-zA-z]+\\+[a-zA-z]+;return[a-zA-z]+;}";
+        String match="int[a-zA-z]+\\(int[a-zA-z]+,int[a-zA-z]+\\)\\{int[a-zA-z]+=0;[a-zA-z]+=[a-zA-z]+\\+[a-zA-z]+;return[a-zA-z]+;}";
         if (string.matches(match)){
-            String text1=string.substring(string.indexOf("(")+1,string.indexOf(","));
-            String text2=string.substring(string.indexOf(",")+1,string.indexOf(")"));
-            String text3=string.substring(string.indexOf("{")+1,string.indexOf("="));
+            String text1=string.substring(string.indexOf("(int")+4,string.indexOf(",int"));
+            String text2=string.substring(string.indexOf(",int")+4,string.indexOf(")"));
+            String text3=string.substring(string.indexOf("{int")+4,string.indexOf("="));
             String text4=string.substring(string.indexOf(";")+1,string.lastIndexOf("="));
             String text5=string.substring(string.lastIndexOf("=")+1,string.lastIndexOf("+"));
             String text6=string.substring(string.indexOf("+")+1,string.lastIndexOf("return")-1);

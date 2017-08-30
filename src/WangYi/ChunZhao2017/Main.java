@@ -30,16 +30,19 @@ public class Main {
         Matrix initMatrix=new Matrix(array.length);
         for (int i = 0; i <array.length ; i++) {
             for (int j = 0; j <array.length ; j++) {
-                if (i==j||(i+1)%array.length==j)
+                if (i==j||(i-1)==j)
                     initMatrix.mat[i][j]=1;
             }
         }
+        initMatrix.mat[0][array.length-1]=1;
+        //求操作矩阵的幂
         Matrix temp=initMatrix.powerMatrix(k);
-
+        //k次变换后的结果
         int[] result=new int[array.length];
         for (int i = 0; i <array.length ; i++) {
             for (int j = 0; j <array.length ; j++) {
                 result[i]+=array[j]*temp.mat[j][i];
+                result[i]=result[i]%100;
             }
         }
         return result;
@@ -87,7 +90,7 @@ public class Main {
             }
             return res;
         }
-        //方阵的密次方。
+        //方阵的幂次方。
         public Matrix powerMatrix(int k){
             Matrix identity= Matrix.identityMatrix(n);
             Matrix base=new Matrix(this.mat);
