@@ -13,13 +13,11 @@ public class Main {
                 "        return sum;\n" +
                 "    }";
         System.out.println(isSame(string));
-
     }
     public static int isSame(String string){
         string=string.replaceAll("int","");
         string=string.replaceAll("\\s+","");
         String match="[a-zA-z]+\\([a-zA-z]+,[a-zA-z]+\\)\\{[a-zA-z]+=0;[a-zA-z]+=[a-zA-z]+\\+[a-zA-z]+;return[a-zA-z]+;}";
-
         if (string.matches(match)){
             String text1=string.substring(string.indexOf("(")+1,string.indexOf(","));
             String text2=string.substring(string.indexOf(",")+1,string.indexOf(")"));
@@ -28,14 +26,9 @@ public class Main {
             String text5=string.substring(string.lastIndexOf("=")+1,string.lastIndexOf("+"));
             String text6=string.substring(string.indexOf("+")+1,string.lastIndexOf("return")-1);
             String text7=string.substring(string.indexOf("return")+6,string.lastIndexOf(";"));
-            if (text3.equals(text4)&&text3.equals(text4)&&!text1.equals(text2)&&(text1.equals(text5)&&text2.equals(text6)||text2.equals(text5)&&text1.equals(text6)))
+            if (text3.equals(text4)&&text3.equals(text7)&&!text1.equals(text2)&&(text1.equals(text5)&&text2.equals(text6)||text2.equals(text5)&&text1.equals(text6)))
                 return 1;
         }
         return 0;
-    }
-    public int add(int x,int y){
-        int sum=0;
-        sum=x+y;
-        return sum;
     }
 }
