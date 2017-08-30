@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/4/28.
+ * 面试
  * 有N个学生的数据，将学生数据按成绩高低排序，如果成绩相同则按姓名字符的字母序排序
  */
 public class Main {

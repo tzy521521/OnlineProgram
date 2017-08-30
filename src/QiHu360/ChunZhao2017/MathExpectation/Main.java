@@ -1,4 +1,4 @@
-package QiHu360.Test2;
+package QiHu360.ChunZhao2017.MathExpectation;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

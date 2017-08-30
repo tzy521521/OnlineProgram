@@ -1,4 +1,4 @@
-package QuNaEr.JinzhiZhuanhuan;
+package QuNaEr.ChunZhao2017.JinzhiZhuanhuan;
 
 import java.util.Scanner;
 

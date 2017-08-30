@@ -1,4 +1,4 @@
-package QuNaEr.Tree;
+package QuNaEr.ChunZhao2017.Tree;
 
 import java.util.*;
 
@@ -15,6 +15,7 @@ class TreeNode{
         this.val = val;
     }
 }
+
 public class Main {
     /**
      * 递归重建树。
@@ -22,7 +23,7 @@ public class Main {
      * @param in
      * @return
      */
-    public static TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+    public static TreeNode reConstructBinaryTree(int [] pre, int [] in) {
         //递归终止条件~~~~
         if(pre.length == 0||in.length == 0){
             return null;
