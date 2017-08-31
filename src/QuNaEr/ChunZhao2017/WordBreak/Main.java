@@ -14,48 +14,24 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
         while (scanner.hasNext()){
             ArrayList<String>arrayList=new ArrayList<>();
+
             String beginWord=scanner.nextLine();
             arrayList.add(beginWord);
             String endWord=scanner.nextLine();
             String[] list=scanner.nextLine().split("\\s");
             Collections.addAll(arrayList,list);
-            ArrayList<String>[] neighbors=AdjacencyList(arrayList);
 
-            for (ArrayList<String> temp:neighbors) {
-                System.out.println(temp);
-            }
-
-            ArrayList<String> bfsOrder=BFS(beginWord,arrayList,neighbors);
-            System.out.println("广度优先搜索~~~");
-            System.out.println(bfsOrder);
-
-            ArrayList<String> dfsOrder=DFS(beginWord,arrayList,neighbors);
-            System.out.println("深度优先搜索~~~");
-            System.out.println(dfsOrder);
-            ArrayList<String> dfsOrder1=DFS_1(beginWord,arrayList,neighbors);
-            System.out.println("深度优先搜索~~~");
-            System.out.println(dfsOrder1);
-
-            System.out.println("变换长度");
-            System.out.println(ladderLength(beginWord,endWord,arrayList,neighbors));
-            System.out.println(ladderLength1(beginWord,endWord,arrayList,neighbors));
-
-            List<List<String>> lists=new ArrayList<>(findLadders(beginWord,endWord,arrayList,neighbors));
-            for (List<String> a:lists) {
-                System.out.println(a);
-            }
-
+            System.out.println(ladderLength(beginWord,endWord,arrayList));
+            System.out.println(ladderLength1(beginWord,endWord,arrayList));
         }
     }
-
     //建立邻接点线性表
-    public static ArrayList<String>[] AdjacencyList(ArrayList<String> arrayList){
+    public static ArrayList<String>[] adjacencyList(ArrayList<String> arrayList){
         ArrayList<String>[] neighbors=new ArrayList[arrayList.size()];
         for (int i = 0; i <arrayList.size() ; i++) {
             //这个步骤不能忘
             neighbors[i]=new ArrayList<>();
-
-            String temp=arrayList.get(i);//~~~~~~~~~~~~~~~
+            String temp=arrayList.get(i);
             for (int j = 0; j <arrayList.size() ; j++) {
                 String current=arrayList.get(j);
                 if (isOnceBreak(temp,current))
@@ -64,10 +40,11 @@ public class Main {
         }
         return neighbors;
     }
-    public static boolean isOnceBreak(String temp,String current){
-        if (temp.compareTo(current)!=0){
-            for (int i = 0; i <temp.length() ; i++) {
-                char[] chars=temp.toCharArray();
+    //判断两个单词是否只相差一个字母。
+    private static boolean isOnceBreak(String string,String current){
+        if (string.compareTo(current)!=0){
+            for (int i = 0; i <string.length() ; i++) {
+                char[] chars=string.toCharArray();
                 for (char start='a';start<='z';start++) {
                     chars[i]=start;
                     String newtemp=new String(chars);
@@ -78,84 +55,16 @@ public class Main {
         }
         return false;
     }
-
-    //深度优先搜索非递归算法。
-    public static ArrayList<String> DFS_1(String beginWord,ArrayList<String>arrayList,ArrayList<String>[] neighbors){
-        ArrayList<String> searchOrder=new ArrayList<>();
-        Stack<String> stack=new Stack<>();
-        stack.push(beginWord);//~~~~~~~~~~~
-        searchOrder.add(beginWord);//~~~~~~~~~~~~~
-        while (!stack.isEmpty()){
-            String temp=stack.peek();
-            int k=arrayList.indexOf(temp);
-            for (String str:neighbors[k]) {
-                if (searchOrder.contains(str)){
-                    if (str==neighbors[k].get(neighbors[k].size()-1)){
-                        stack.pop();
-                        break;
-                    }
-                    continue;
-                }else {
-                    searchOrder.add(str);
-                    stack.push(str);
-                    break;
-                }
-            }
-        }
-        return searchOrder;
-    }
-    //深度优先搜索递归算法。
-    public static ArrayList<String> DFS(String beginWord,ArrayList<String>arrayList,ArrayList<String>[] neighbors){
-        ArrayList<String> searchOrder=new ArrayList<>();
-        searchOrder.add(beginWord);//~~~~~~~~~~~
-        DFS(beginWord,arrayList,neighbors,searchOrder);
-       return searchOrder;
-    }
-    public static void DFS(String beginWord,ArrayList<String>arrayList,ArrayList<String>[] neighbors,ArrayList<String> searchOrder){
-        int k=arrayList.indexOf(beginWord);
-        for (String str:neighbors[k]) {
-            if (searchOrder.contains(str))
-                continue;
-            else{
-                searchOrder.add(str);
-                DFS(str,arrayList,neighbors,searchOrder);
-            }
-        }
-    }
-
-    //广度优先搜索。
-    public static ArrayList<String> BFS(String beginWord,ArrayList arrayList,ArrayList<String>[] neighbors){
-        int k=arrayList.indexOf(beginWord);
-        ArrayList<String> order=new ArrayList<>();
-        Queue<String> queue=new LinkedList<>();
-        queue.add(beginWord);//~~~~~~~~~~~~~~
-        order.add(beginWord);//~~~~~~~~~~~~~~
-        for (String str:neighbors[k]) {
-            queue.offer(str);
-            order.add(str);
-        }
-        while (!queue.isEmpty()){
-            String temp=queue.poll();
-            int j=arrayList.indexOf(temp);
-            for (String current:neighbors[j]) {
-                if (order.contains(current))
-                    continue;
-                else
-                    order.add(current);
-            }
-        }
-        return order;
-    }
-
-    //利用广度搜索查找最短路径。。。
-    public static int ladderLength(String beginWord,String endWord,ArrayList arrayList,ArrayList<String>[] neighbors){
-        Set<String> beginSet = new HashSet<>();
-        int len = 1;
+    //利用广度搜索查找最短路径
+    public static int ladderLength(String beginWord,String endWord,ArrayList arrayList){
+        ArrayList<String>[] neighbors=adjacencyList(arrayList);
+        int len = 1;//初始长度为1
+        ArrayList<String> beginSet = new ArrayList<>();
         HashSet<String> visited = new HashSet<>();
         beginSet.add(beginWord);
         visited.add(beginWord);
         while (!beginSet.isEmpty()) {
-            Set<String> temp = new HashSet<>();
+            ArrayList<String> temp = new ArrayList<>();
             for (String word : beginSet) {
                 int k=arrayList.indexOf(word);
                 for (String current:neighbors[k]) {
@@ -173,7 +82,8 @@ public class Main {
         return -1;
     }
     //利用双端广度搜索查找最短路径。。。
-    public static int ladderLength1(String beginWord,String endWord,ArrayList arrayList,ArrayList<String>[] neighbors){
+    public static int ladderLength1(String beginWord,String endWord,ArrayList arrayList){
+        ArrayList<String>[] neighbors=adjacencyList(arrayList);
         Set<String> beginSet = new HashSet<>(),endSet = new HashSet<>();
         int len = 1;
         HashSet<String> visited = new HashSet<>();
@@ -186,7 +96,6 @@ public class Main {
                 beginSet = endSet;
                 endSet = set;
             }
-
             Set<String> temp = new HashSet<>();
             for (String word : beginSet) {
                 int k=arrayList.indexOf(word);
@@ -203,40 +112,5 @@ public class Main {
             len++;
         }
         return -1;
-    }
-    //所有变换最短路径。
-    public static List<List<String>> findLadders(String start, String end, ArrayList<String> arrayList,ArrayList<String>[] neighbors) {
-        List<List<String>> results = new ArrayList<List<String>>();
-        // instead of storing words we are at, we store the paths.
-        Deque<List<String>> paths = new LinkedList<List<String>>();
-        List<String> path0 = new LinkedList<String>();
-        path0.add(start);
-        paths.add(path0);
-        // if we found a path ending at 'end', we will set lastLevel,
-        // use this data to stop iterating further.
-        int level = 1, lastLevel = Integer.MAX_VALUE;
-        while (!paths.isEmpty()) {
-            List<String> path = paths.pollFirst();
-            if (path.size() > level) {
-                level = path.size();
-                if (level > lastLevel)
-                    break; // stop and return
-            }
-            //  try to find next word to reach, continuing from the path
-            String last = path.get(level - 1);
-            int k=arrayList.indexOf(last);
-            //很关键哦~~~
-            neighbors[k].remove(path);
-            for (String next:neighbors[k]) {
-                List<String> nextPath = new LinkedList<String>(path);
-                nextPath.add(next);
-                if (next.equals(end)) {
-                    results.add(nextPath);
-                    lastLevel = level; // curr level is the last level
-                } else
-                    paths.addLast(nextPath);
-            }
-        }
-        return results;
     }
 }
