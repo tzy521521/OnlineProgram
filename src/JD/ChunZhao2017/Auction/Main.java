@@ -1,4 +1,4 @@
-package JD;
+package JD.ChunZhao2017.Auction;
 
 import java.util.Arrays;
 import java.util.Scanner;

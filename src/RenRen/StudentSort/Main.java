@@ -1,4 +1,4 @@
-package RenRen.Solution;
+package RenRen.StudentSort;
 
 import java.util.ArrayList;
 import java.util.Collections;

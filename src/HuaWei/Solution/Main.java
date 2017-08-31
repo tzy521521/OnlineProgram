@@ -39,7 +39,7 @@ public class Main {
         String stri="";
         while (num!=0){
             int yu=num%26;
-            stri=numToChar(yu)+stri;
+            stri=(char)(yu)+stri;
             num=num/26;
         }
         return stri;

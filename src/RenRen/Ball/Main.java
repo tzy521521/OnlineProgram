@@ -1,4 +1,4 @@
-package RenRen.Solution1;
+package RenRen.Ball;
 
 import java.util.ArrayList;
 import java.util.Scanner;
