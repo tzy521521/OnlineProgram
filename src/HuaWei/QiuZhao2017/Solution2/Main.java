@@ -1,6 +1,4 @@
-package HuaWei.Solution2;
-
-import java.util.Scanner;
+package HuaWei.QiuZhao2017.Solution2;
 
 /**
  * Created by tzy on 2017/8/30.

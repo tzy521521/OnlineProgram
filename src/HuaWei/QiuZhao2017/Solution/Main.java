@@ -1,25 +1,22 @@
-package HuaWei.Solution;
+package HuaWei.QiuZhao2017.Solution;
 
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/8/30.
- * 在某种场景下，开发人员决定使用字母来表示一个正整数，该方法利用英文的小写字母表示，
- * 映射规则很简单，按字母顺序每一个字母都代表一个值。如下所示列表中的部分内容。字母表示 对应十进制
+ * 在某种场景下，开发人员决定使用字母来表示一个正整数，该方法利用英文的小写字母表示，映射规则很简单，
+ * 按字母顺序每一个字母都代表一个值。
  */
 public class Main {
+    //26进制转换成10进制。
     public static long hexToDecimal(String hex){
         long decimalValue=0;
         for (int i=0;i<hex.length();i++){
-            char hexChar=hex.charAt(i);
-            decimalValue=decimalValue*26+hexCharToDecimal(hexChar);
+            decimalValue=decimalValue*26+(hex.charAt(i)-96);
         }
         return decimalValue;
     }
-    public static int hexCharToDecimal(char ch){
-        if (ch>='a'&&ch<='z');
-        return ch-96;
-    }
+    //判断是否是有效的小写字符串
     public static boolean isLowString(String string){
         for (int i = 0; i <string.length() ; i++) {
             if (!(string.charAt(i)>='a'&&string.charAt(i)<='z'))
@@ -27,7 +24,17 @@ public class Main {
         }
         return true;
     }
+    //判断是否是有效的数字字符串
     public static boolean isNum(String string){
+        /*
+        try {
+            //注意 "+153658"是符合要求的，本题的不知道测试用例有没有这个。
+            Long.valueOf(string);
+        }catch (NumberFormatException e){
+            return false;
+        }
+        return true;
+         */
         for (int i = 0; i <string.length() ; i++) {
             if (!(string.charAt(i)>='0'&&string.charAt(i)<='9'))
                 return false;
@@ -39,13 +46,10 @@ public class Main {
         String stri="";
         while (num!=0){
             int yu=num%26;
-            stri=(char)(yu)+stri;
+            stri=(char)(yu+96)+stri;
             num=num/26;
         }
         return stri;
-    }
-    public static char numToChar(int num){
-        return (char) (num+96);
     }
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
