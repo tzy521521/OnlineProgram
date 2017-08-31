@@ -1,4 +1,4 @@
-package WangYi.ChunZhao2017;
+package WangYi.ChunZhao2017.MagicBracelet;
 
 import java.util.Scanner;
 
