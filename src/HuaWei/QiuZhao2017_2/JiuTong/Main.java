@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/6.
+ * 酒馆有m个龙头可供顾客们接啤酒，每个龙头每秒的出酒量相等，都是1.现在有n名顾客准备接酒，
+ * 他们的接酒顺序是确定的。将这些顾客接酒的顺序从1到n编号，i号顾客的接酒量是w_i。
+ *
  */
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +15,7 @@ public class Main {
         while (scanner.hasNext()){
             int n=scanner.nextInt();
             int m=scanner.nextInt();
-            int[]  jiu=new int[n];
+            int[] jiu=new int[n];
             for (int i = 0; i <n ; i++) {
                 jiu[i]=scanner.nextInt();
             }
@@ -35,7 +38,7 @@ public class Main {
             int min=shLong[0];
             time+=min;
             for (int j = 0; j <shLong.length; j++) {
-                shLong[j]=shLong[j]-min;
+                shLong[j]-=min;
             }
             for (int j = 0; j <shLong.length ; j++) {
                 if (shLong[j]==0){

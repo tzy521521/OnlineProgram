@@ -1,4 +1,4 @@
-package HuaWei.QiuZhao2017.Solution;
+package HuaWei.QiuZhao2017_1.Solution;
 
 import java.util.Scanner;
 

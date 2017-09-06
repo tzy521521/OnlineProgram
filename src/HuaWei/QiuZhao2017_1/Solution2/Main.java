@@ -1,4 +1,4 @@
-package HuaWei.QiuZhao2017.Solution2;
+package HuaWei.QiuZhao2017_1.Solution2;
 
 /**
  * Created by tzy on 2017/8/30.

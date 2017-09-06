@@ -5,6 +5,12 @@ import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/6.
+ * 牛客网剑指Offer。
+ * 100个人围成一圈，每个人有一个编码，编号从1到100。他们从1开始依次报数，报到M的人自动退出圆圈，
+ * 然后下一个人接着从1开始报数，知道剩余的人数小于M。请问最后剩余的人的原先的编号是多少？
+ * 例如输入M=3，输出为：58,91。
+ * 如果输入的M大于等于100，则输出"ERROR";M小于等于1，则输出"ERROR";
+ *
  */
 public class Main {
     public static void main(String[] args) {
