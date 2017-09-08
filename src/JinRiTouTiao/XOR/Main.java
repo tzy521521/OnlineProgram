@@ -31,13 +31,12 @@ public class Main {
         if (root==null)
             return 0;
         TrieTree current=root;
-        for (int i = index; i >=0 ; i--) {
-            //异或的结果从高处开始比较？
+        for (int i = index; i >=0 ; i--) {//异或的结果从高处开始比较
             int aDigit=(a>>i)&1;
             int mDigit=(m>>i)&1;
             if (aDigit==1&&mDigit==1){
                 //字典中第i位为1，异或结果为0，(因此两个数的异或结果)小于mDigit，不用理会；
-                //字典中第i位为0，异或结果为1，(因此两个数的异或结果)大于等于mDigit，需要继续搜索更低位。
+                //字典中第i位为0，异或结果为1，需要继续搜索更低位。
                 if (current.next[0]==null)
                     //不存在第i位为0的二进制数。
                     return 0;
@@ -45,14 +44,14 @@ public class Main {
                     current=current.next[0];
             }else if (aDigit==0&&mDigit==1){
                 //字典中第i位为0，异或结果为0，(因此两个数的异或结果)小于mDigit，不用理会；
-                //字典中第i位为1，异或结果为1，(因此两个数的异或结果)大于等于mDigit，需要继续搜索更低位。
+                //字典中第i位为1，异或结果为1，需要继续搜索更低位。
                 if (current.next[1]==null)
                     //不存在第i位为1的二进制数。
                     return 0;
                 else
                     current=current.next[1];
             }else if (aDigit==1&&mDigit==0){
-                //字典中第k位为0，异或结果为1，与对应分支所有数异或，结果都会大于m，
+                //字典中第k位为0，异或结果为1，(存在前缀第i位为0的数)与对应分支所有数异或，结果都会大于m，
                 long q=(current.next[0]==null?0:current.next[0].count);
                 //第k位为1，异或结果为0，递归获得结果；
                 long p=queryTrieTree(current.next[1],a,m,i-1);
