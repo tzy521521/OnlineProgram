@@ -1,4 +1,4 @@
-package JinRiTouTiao.a;
+package JinRiTouTiao.SchoolRecruit;
 
 import java.util.ArrayList;
 import java.util.Collections;
