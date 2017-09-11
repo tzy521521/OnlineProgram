@@ -1,4 +1,4 @@
-package WangYi.Qiuzhao2017.ArithmeticalSeries;
+package WangYi.Qiuzhao2017_neitui.ArithmeticalSeries;
 
 import java.util.ArrayList;
 import java.util.Collections;

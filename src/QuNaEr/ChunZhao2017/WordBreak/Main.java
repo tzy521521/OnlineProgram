@@ -25,8 +25,9 @@ public class Main {
             System.out.println(ladderLength1(beginWord,endWord,arrayList));
         }
     }
-    //建立邻接点线性表
+    //建立邻接点线性表(来表示图)
     public static ArrayList<String>[] adjacencyList(ArrayList<String> arrayList){
+        //线性表数组。
         ArrayList<String>[] neighbors=new ArrayList[arrayList.size()];
         for (int i = 0; i <arrayList.size() ; i++) {
             //这个步骤不能忘

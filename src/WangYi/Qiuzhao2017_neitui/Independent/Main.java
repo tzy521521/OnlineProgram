@@ -1,4 +1,4 @@
-package WangYi.Qiuzhao2017.Independent;
+package WangYi.Qiuzhao2017_neitui.Independent;
 
 import java.math.BigInteger;
 import java.util.Scanner;
