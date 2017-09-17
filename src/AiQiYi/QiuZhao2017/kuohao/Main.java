@@ -1,4 +1,4 @@
-package AiQiYi.kuohao;
+package AiQiYi.QiuZhao2017.kuohao;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -14,25 +14,19 @@ public class Main {
             System.out.println(deepLength(s));
         }
     }
-    public static int deepLength(String string){
+    private static int deepLength(String string){//string 必须是合法的括号序列。
         if (string==null||string.length()<1)
             return 0;
         Stack<Character> stack=new Stack<>();
         stack.push(string.charAt(0));
         int max=0;
         for (int i = 1; i <string.length() ; i++) {
-            if (stack.isEmpty())
-                stack.push(string.charAt(i));
-            else {
-                if (string.charAt(i)==')'){
-                    if (stack.size()>max){
-                        max=stack.size();
-                        stack.pop();
-                    }
-                }
-                else
-                    stack.push(string.charAt(i));
+            if (string.charAt(i)==')'){
+                max=Math.max(max,stack.size());
+                stack.pop();
             }
+            else
+                stack.push(string.charAt(i));
         }
         return max;
     }

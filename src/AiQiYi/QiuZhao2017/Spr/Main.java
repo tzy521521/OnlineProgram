@@ -1,4 +1,4 @@
-package AiQiYi.Spr;
+package AiQiYi.QiuZhao2017.Spr;
 
 import java.util.ArrayList;
 import java.util.Scanner;

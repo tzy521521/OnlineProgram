@@ -1,10 +1,13 @@
-package AiQiYi;
+package AiQiYi.QiuZhao2017.CycleNumberComparison;
 
 import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/10.
+ * 循环数比较：
+ * 对于任意正整数x和k，我们定义repeat(x,k)为将重复写k次形成的数。如repeat(12,4)=12121212，
+ * 现在牛牛给出4个整数x1,k1,x2,k2,其中v1=repeat(x1,k1);v2=repeat(x2,k2),比较v1和v2的大小。
  */
 public class Main {
     public static void main(String[] args) {
@@ -17,6 +20,16 @@ public class Main {
     public static String comparRepeat(String [] strings){
         String x1=strings[0];int k1=Integer.valueOf(strings[1]);
         String x2=strings[2];int k2=Integer.valueOf(strings[3]);
+
+        String v1=repeat(x1,k1);
+        String v2=repeat(x2,k2);
+        if (v1.compareTo(v2)>0)
+            return "Greater";
+        else if (v1.compareTo(v2)<0)
+            return "Less";
+        else
+            return "Equal";
+        /*(
         String s1=repeat(x1,k1);
         String s2=repeat(x2,k2);
         BigInteger b1=new BigInteger(s1);
@@ -27,8 +40,9 @@ public class Main {
             return "Less";
         else
             return "Equal";
+         */
     }
-    public static String repeat(String x,int k){
+    private static String repeat(String x,int k){
         StringBuilder stringBuilder=new StringBuilder();
         for (int i = 0; i <k ; i++) {
             stringBuilder.append(x);

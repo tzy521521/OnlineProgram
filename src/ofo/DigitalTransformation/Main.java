@@ -1,15 +1,16 @@
-package ofo.Msd;
+package ofo.DigitalTransformation;
 
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/14.
+ * 一个整数n，如果是偶数可以变换为n/2,如果为技术就可以变换为n+1或者n-1;求变换成1的最小变换次数。
  */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         while (scanner.hasNext()){
-            long n=scanner.nextInt();
+            long n=scanner.nextLong();
             System.out.println(replace(n));
         }
     }
