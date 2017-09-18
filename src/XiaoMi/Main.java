@@ -30,9 +30,21 @@ public class Main {
         String[] arry2=temp.replaceAll("\\d+","").replaceAll("[A-Z][a-z]+","_").replaceAll("[a-z]+","_").split("_");
 
         for (String str:arry2) {
-            int index=stringBuilder.toString().indexOf(str);
-            if (index-1>=0&&stringBuilder.toString().charAt(index-1)!='_')
-                stringBuilder.insert(index,"_");
+            if (str.length()>0){
+                int index=stringBuilder.toString().indexOf(str);
+                if (index-1>=0&&stringBuilder.toString().charAt(index-1)!='_')
+                    stringBuilder.insert(index,"_");
+            }
+        }
+        String[] arry3=temp.replaceAll("\\d+","").replaceAll("[A-Z][a-z]+","_").replaceAll("[A-Z]+","_").split("_");
+
+        for (String str:arry3) {
+            if (str.length()>0){
+                int index=stringBuilder.toString().indexOf(str);
+                if (index-1>=0&&stringBuilder.toString().charAt(index-1)!='_')
+                    stringBuilder.insert(index,"_");
+            }
+
         }
         int i=0;
         /*
