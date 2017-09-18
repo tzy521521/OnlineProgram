@@ -40,7 +40,6 @@ public class Main {
             }else
                 break;
         }
-
         String result=stringBuilder.toString().toUpperCase();
         result="_"+result+"_";
         return result;
