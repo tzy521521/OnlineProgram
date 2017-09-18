@@ -1,4 +1,4 @@
-package SouGou.QiuZhao2017_1;
+package SouHu;
 
 import java.util.Scanner;
 import java.util.TreeSet;
