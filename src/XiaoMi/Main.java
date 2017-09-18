@@ -1,6 +1,8 @@
 package XiaoMi;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by tzy on 2017/9/18.
@@ -14,71 +16,32 @@ public class Main {
         }
     }
     private static String nameTrance(String string){
-        String temp=string.replaceAll("\\.","_");
-
-        StringBuilder stringBuilder=new StringBuilder(temp);
-
-        String[] arry=temp.split("\\D+");
-        for (String str:arry) {
-            if (str.length()>1){
-                int index=stringBuilder.toString().indexOf(str);
-                if (index-1>=0&&stringBuilder.toString().charAt(index-1)!='_')
-                    stringBuilder.insert(index,"_");
-            }
+        StringBuilder stringBuilder=new StringBuilder(string.replaceAll("\\.","_"));
+        Pattern pattern=Pattern.compile("[A-Z][a-z]");
+        int index=0;
+        while (true){
+            Matcher matcher=pattern.matcher(stringBuilder.toString().substring(index));
+            if(matcher.find()){
+                int temp=matcher.start();
+                stringBuilder.insert(index+temp,"_");
+                index=index+temp+2;
+            }else
+                break;
         }
 
-        String[] arry2=temp.replaceAll("\\d+","").replaceAll("[A-Z][a-z]+","_").replaceAll("[a-z]+","_").split("_");
-
-        for (String str:arry2) {
-            if (str.length()>0){
-                int index=stringBuilder.toString().indexOf(str);
-                if (index-1>=0&&stringBuilder.toString().charAt(index-1)!='_')
-                    stringBuilder.insert(index,"_");
-            }
+        index=0;
+        Pattern pattern1=Pattern.compile("(([a-z][A-Z])|([a-zA-Z]\\d)|(\\d[a-zA-Z]))");
+        while (true){
+            Matcher matcher=pattern1.matcher(stringBuilder.toString().substring(index));
+            if(matcher.find()){
+                int temp=matcher.start()+1;
+                stringBuilder.insert(index+temp,"_");
+                index=index+temp+2;
+            }else
+                break;
         }
-        String[] arry3=temp.replaceAll("\\d+","").replaceAll("[A-Z][a-z]+","_").replaceAll("[A-Z]+","_").split("_");
-
-        for (String str:arry3) {
-            if (str.length()>0){
-                int index=stringBuilder.toString().indexOf(str);
-                if (index-1>=0&&stringBuilder.toString().charAt(index-1)!='_')
-                    stringBuilder.insert(index,"_");
-            }
-
-        }
-        int i=0;
-        /*
-        String temp=string.replaceAll("\\.","_");
-
-        String temp1=string.replaceAll("\\d+",".");
-        temp1=temp1.replaceAll("[A-Z][a-z]+",".");
-        String[] arry1=temp1.split("\\.");//全大写
-         */
-        /*
-        String temp2=string.replaceAll("\\d+",".");
-        temp2=temp2.replaceAll("[A-Z]+",".");
-        String[] arry2=temp2.split("\\.");//全小写和一个写加一个小写
-
-        String[] arry3=string.split("\\D+");
-
-        for (String str:arry1) {
-            int index=string.indexOf(str);
-            stringBuilder.insert(index,"_");
-        }
-
-        for (String str:arry2) {
-            int index=string.indexOf(str);
-            stringBuilder.insert(index,"_");
-        }
-        for (String str:arry3) {
-            int index=string.indexOf(str);
-            stringBuilder.insert(index,"_");
-        }
-         */
-
-        String result=stringBuilder.toString();
+        String result=stringBuilder.toString().toUpperCase();
         result="_"+result+"_";
-        result=result.toUpperCase();
         return result;
     }
 }
