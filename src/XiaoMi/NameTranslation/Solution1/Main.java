@@ -1,4 +1,4 @@
-package XiaoMi;
+package XiaoMi.NameTranslation.Solution1;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -20,7 +20,7 @@ public class Main {
         Pattern pattern=Pattern.compile("[A-Z][a-z]");
         int index=0;
         while (true){
-            Matcher matcher=pattern.matcher(stringBuilder.toString().substring(index));
+            Matcher matcher=pattern.matcher(stringBuilder.substring(index));
             if(matcher.find()){
                 int temp=matcher.start();
                 stringBuilder.insert(index+temp,"_");
@@ -32,7 +32,7 @@ public class Main {
         index=0;
         Pattern pattern1=Pattern.compile("(([a-z][A-Z])|([a-zA-Z]\\d)|(\\d[a-zA-Z]))");
         while (true){
-            Matcher matcher=pattern1.matcher(stringBuilder.toString().substring(index));
+            Matcher matcher=pattern1.matcher(stringBuilder.substring(index));
             if(matcher.find()){
                 int temp=matcher.start()+1;
                 stringBuilder.insert(index+temp,"_");
