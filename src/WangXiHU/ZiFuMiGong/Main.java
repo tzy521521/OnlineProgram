@@ -1,4 +1,4 @@
-package WangXiHU.ZiFuMiZhen;
+package WangXiHU.ZiFuMiGong;
 
 import java.util.ArrayList;
 import java.util.Scanner;
