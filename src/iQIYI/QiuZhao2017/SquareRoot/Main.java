@@ -19,12 +19,13 @@ public class Main {
         int sum=0;
         for (int i = 1; i <=n ; i++) {
             int s=1;
-            for (int j = 2; j <i/j ; j++) {
+            //找到最大的s，让i是s*s的倍数。
+            for (int j = 2; j <=i/j ; j++) {
                 if (i%(j*j)==0){
                     s=j*j;
                 }
             }
-            int r=i/s;
+            int r=i/s;//i是s的多少倍。
             for (int k = 1; k*k*r <=m ; k++) {
                 sum++;
             }
