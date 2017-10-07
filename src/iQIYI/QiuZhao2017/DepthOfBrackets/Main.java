@@ -1,10 +1,11 @@
-package iQIYI.QiuZhao2017.kuohao;
+package iQIYI.QiuZhao2017.DepthOfBrackets;
 
 import java.util.Scanner;
 import java.util.Stack;
 
 /**
  * Created by tzy on 2017/9/10.
+ * 求括号的深度。
  */
 public class Main {
     public static void main(String[] args) {
