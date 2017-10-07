@@ -15,10 +15,10 @@ public class Main {
             System.out.println(solve(n,m));
         }
     }
-    public static int solve(int n,int m){
+    private static int solve(int n,int m){
         int sum=0;
         for (int i = 1; i <=n ; i++) {
-           int s=1;
+            int s=1;
             for (int j = 2; j <i/j ; j++) {
                 if (i%(j*j)==0){
                     s=j*j;
