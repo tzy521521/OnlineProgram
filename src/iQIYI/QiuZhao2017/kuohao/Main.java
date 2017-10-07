@@ -1,4 +1,4 @@
-package AiQiYi.QiuZhao2017.kuohao;
+package iQIYI.QiuZhao2017.kuohao;
 
 import java.util.Scanner;
 import java.util.Stack;

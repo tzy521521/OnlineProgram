@@ -1,4 +1,4 @@
-package AiQiYi.QiuZhao2017.CycleNumberComparison;
+package iQIYI.QiuZhao2017.CycleNumberComparison;
 
 import java.math.BigInteger;
 import java.util.Scanner;
@@ -23,24 +23,22 @@ public class Main {
 
         String v1=repeat(x1,k1);
         String v2=repeat(x2,k2);
+        /*直接字符串比较也是可以的。
         if (v1.compareTo(v2)>0)
             return "Greater";
         else if (v1.compareTo(v2)<0)
             return "Less";
         else
             return "Equal";
-        /*(
-        String s1=repeat(x1,k1);
-        String s2=repeat(x2,k2);
-        BigInteger b1=new BigInteger(s1);
-        BigInteger b2=new BigInteger(s2);
+         */
+        BigInteger b1=new BigInteger(v1);
+        BigInteger b2=new BigInteger(v2);
         if (b1.compareTo(b2)>0)
             return "Greater";
         else if (b1.compareTo(b2)<0)
             return "Less";
         else
             return "Equal";
-         */
     }
     private static String repeat(String x,int k){
         StringBuilder stringBuilder=new StringBuilder();

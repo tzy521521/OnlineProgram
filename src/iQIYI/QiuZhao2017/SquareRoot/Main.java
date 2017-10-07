@@ -1,4 +1,4 @@
-package AiQiYi.QiuZhao2017.Spr;
+package iQIYI.QiuZhao2017.SquareRoot;
 
 import java.util.ArrayList;
 import java.util.Scanner;
