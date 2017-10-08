@@ -25,8 +25,9 @@ public class Main {
                     s=j*j;
                 }
             }
-            int r=i/s;//i是s的多少倍。
+            int r=i/s;//i=r*s=r*(j*j),
             for (int k = 1; k*k*r <=m ; k++) {
+                //n*m=k*k*r=k*k*r*(r*(j*j))
                 sum++;
             }
         }
