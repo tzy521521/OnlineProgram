@@ -1,4 +1,4 @@
-package XieCheng.ChunZhao2017.FindGreatestSumOfSubArray;
+package Ctrip.ChunZhao2017.FindGreatestSumOfSubArray;
 
 import java.util.Scanner;
 

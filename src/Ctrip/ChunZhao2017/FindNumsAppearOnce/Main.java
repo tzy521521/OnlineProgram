@@ -1,4 +1,4 @@
-package XieCheng.ChunZhao2017.FindNumsAppearOnce;
+package Ctrip.ChunZhao2017.FindNumsAppearOnce;
 
 import java.util.*;
 

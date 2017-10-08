@@ -1,4 +1,4 @@
-package XieCheng.ChunZhao2017.DeletingPunctOfString;
+package Ctrip.ChunZhao2017.DeletingPunctOfString;
 
 import java.util.Scanner;
 
