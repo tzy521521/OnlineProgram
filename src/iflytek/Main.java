@@ -1,4 +1,4 @@
-package KeDaXunFei;
+package iflytek;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -29,7 +29,7 @@ public class Main {
                     else
                         break;
                 }
-                stack.push('R');
+                stack.push('R');//发生争吵之后，留下的是面向右的人，以进行更多的争吵。
             }
         }
         return stack.size();
