@@ -1,4 +1,4 @@
-package iflytek;
+package iflytek.CourseConflict;
 
 import java.util.Scanner;
 import java.util.Stack;
