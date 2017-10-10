@@ -1,12 +1,11 @@
 package SouGou.QiuZhao2017.DistanceOfTwoPoints0;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/8.
+ * 只能通过50%
  */
 public class Main {
     public static void main(String[] args) {
@@ -17,23 +16,18 @@ public class Main {
             for (int i = 0; i <n ; i++) {
                 arrayList.add(scanner.nextDouble());
             }
-            ArrayList<Double> lengths=new ArrayList<>();
+            Double max=Double.MIN_VALUE;
             for (int i = 0; i <arrayList.size() ; i++) {
                 for (int j = i+1; j <arrayList.size() ; j++) {
-                    lengths.add(Math.abs(arrayList.get(j)-arrayList.get(i)));
+                    Double dif=Math.abs(arrayList.get(j)-arrayList.get(i));
+                    if (dif>180)
+                        dif=360-dif;
+                    if (dif>max)
+                        max=dif;
                 }
             }
-            System.out.printf("%.8f",sortLength(lengths));
+            //System.out.printf("%.8f",max);
+            System.out.println(String.format("%.8f",max));
         }
-
-    }
-    public static double sortLength(ArrayList<Double> arrayList){
-        Collections.sort(arrayList, new Comparator<Double>() {
-            @Override
-            public int compare(Double o1, Double o2) {
-                return Double.compare(Math.abs(o1-180),Math.abs(o2-180));
-            }
-        });
-        return arrayList.get(0);
     }
 }
