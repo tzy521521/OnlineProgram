@@ -1,4 +1,4 @@
-package FanPuJInKe;
+package FINUP.dasd;
 
 import java.util.Scanner;
 

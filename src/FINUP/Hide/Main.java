@@ -1,9 +1,10 @@
-package FanPuJInKe.Hide;
+package FINUP.Hide;
 
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/10.
+ * 暴力法解决。
  */
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class Main {
             System.out.println(minHide(n));
         }
     }
-    public static long minHide(long n){
+    private static long minHide(long n){
         long index=n;
         while (n<Long.MAX_VALUE){
             if (index-sum(index)>=n)
@@ -22,7 +23,7 @@ public class Main {
         }
         return index;
     }
-    public static long sum(long n){
+    private static long sum(long n){
         long sum=0;
         while (n!=0){
             sum+=n%10;
