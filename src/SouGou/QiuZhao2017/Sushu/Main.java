@@ -1,8 +1,9 @@
-package SouGou.ChunZhao2017.Sushu;
+package SouGou.QiuZhao2017.Sushu;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/8.
