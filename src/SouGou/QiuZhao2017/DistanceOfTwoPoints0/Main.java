@@ -17,6 +17,7 @@ public class Main {
                 arrayList.add(scanner.nextDouble());
             }
             Double max=Double.MIN_VALUE;
+            //很简单就是两个for循环遍历，依次求两个点中的最大距离。但是这个代码只能通过50%。
             for (int i = 0; i <arrayList.size() ; i++) {
                 for (int j = i+1; j <arrayList.size() ; j++) {
                     Double dif=Math.abs(arrayList.get(j)-arrayList.get(i));
