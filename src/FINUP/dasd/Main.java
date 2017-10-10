@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/9/10.
+ * 题目忘记了~~~网上找的AC
  */
 public class Main {
     public static void main(String[] args) {
