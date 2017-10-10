@@ -1,10 +1,11 @@
-package SouHu;
+package SouHu.QiuZhao2017;
 
 import java.util.Scanner;
 import java.util.TreeSet;
 
 /**
- * Created by tzy on 2017/8/8.
+ * Created by tzy on 2017/9/17.
+ * 找出和最大的最长公共子序列。只是通过80%
  */
 public class Main {
     public static void main(String[] args) {
@@ -35,15 +36,8 @@ public class Main {
     }
     private static int[][] table;
     private static TreeSet<String> set = new TreeSet<>();
-
-    /*
-    public static int length_LCS(String string1, String string2){
-        return length_LCS(string1.toCharArray(),string2.toCharArray());
-    }
-     */
-
     //求最长公共子序列的长度。
-    public static int length_LCS(String[] str1, String[] str2) {
+    private static int length_LCS(String[] str1, String[] str2) {
         int substringLength1 = str1.length;
         int substringLength2 = str2.length;
         // 构造二维数组记录子问题的LCS的长度
@@ -60,7 +54,7 @@ public class Main {
         return table[substringLength1][substringLength2];
     }
     //输出所有的最长公共子序列
-    public static TreeSet<String> sequence_LCS(String[] string1, String[] string2){
+    private static TreeSet<String> sequence_LCS(String[] string1, String[] string2){
         length_LCS(string1, string2);
         int m=string1.length;
         int n=string2.length;
