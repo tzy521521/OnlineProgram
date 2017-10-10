@@ -1,4 +1,4 @@
-package SouGou.QiuZhao2017.Sushu;
+package SouGou.QiuZhao2017.DistanceOfTwoPoints0;
 
 import java.util.ArrayList;
 import java.util.Collections;
