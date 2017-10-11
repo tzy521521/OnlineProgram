@@ -25,7 +25,8 @@ public class Main {
             int b = la[i][1];
             if(ae[a-1]>ae[b-1])
                 s+=ae[b-1];
-            else s+=ae[a-1];
+            else
+                s+=ae[a-1];
         }
         return s;
     }
