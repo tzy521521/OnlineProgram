@@ -1,6 +1,10 @@
 package LianJia.Energy;
 
 import java.util.Scanner;
+
+/**
+ * Created by tzy on 2017/10/11.
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
