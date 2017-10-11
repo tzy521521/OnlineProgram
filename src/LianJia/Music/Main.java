@@ -6,11 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while(scanner.hasNext()){
-            String next = scanner.nextLine();
-            String[] split = next.split(" ");
-            n = Integer.parseInt(split[0]);
-            m = Integer.parseInt(split[1]);
-            p = Integer.parseInt(split[2]);
+            n=scanner.nextInt();
+            m=scanner.nextInt();
+            p=scanner.nextInt();
             for (int i=0;i<=p;i++)
                 for (int j=0;j<=n;j++)
                     dp[i][j]=-1;

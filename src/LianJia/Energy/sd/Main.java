@@ -33,7 +33,7 @@ public class Main {
         Collections.sort(list, new Comparator<WanCast>() {
             @Override
             public int compare(WanCast o1, WanCast o2) {
-                return Integer.compare(o1.getEnergy(),o1.getEnergy());
+                return Integer.compare(o1.getEnergy(),o2.getEnergy());
             }
         });
         int minEnergy=0;
