@@ -1,8 +1,11 @@
+package Hand;
+
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/10/12.
  * 第1项的值为1，Fn=Fn-1+Fn-2,给出第N项目的值，判断第二项是否为整数，如果是输出这个整数。
+ * 设第2项为X,推出各项，会发现X前的系数是fibonacci1数，X后加的数是一个fibonacci1。
  */
 public class Main {
     public static void main(String[] args) {
