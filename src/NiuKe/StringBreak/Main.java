@@ -1,4 +1,4 @@
-package ShiTiGu.StringBreak;
+package NiuKe.StringBreak;
 
 /**
  * Created by tzy on 2017/8/31.

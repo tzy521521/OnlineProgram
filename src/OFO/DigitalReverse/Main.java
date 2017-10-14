@@ -1,4 +1,4 @@
-package ofo.DigitalReverse;
+package OFO.DigitalReverse;
 
 import java.util.Scanner;
 

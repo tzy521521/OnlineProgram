@@ -1,4 +1,4 @@
-package ShiTiGu.StringBreak;
+package NiuKe.StringBreak;
 
 import java.util.ArrayList;
 import java.util.Collections;

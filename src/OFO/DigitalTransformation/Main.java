@@ -1,4 +1,4 @@
-package ofo.DigitalTransformation;
+package OFO.DigitalTransformation;
 
 import java.util.Scanner;
 
