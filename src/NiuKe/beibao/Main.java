@@ -36,6 +36,7 @@ public class Main {
                 if (weight[i-1]<=j){
                     f[i][j]=Math.max(f[i-1][j],f[i-1][j-weight[i-1]]+value[i-1]);
                 }else {
+                    //如果第i件的重量(weight[i-1])大于重量j时，第i件物品肯定不装进去。
                     f[i][j]=f[i-1][j];
                 }
 
