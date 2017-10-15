@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by tzy on 2017/10/15.
  * 01背包问题(4种算法)
  * 有n件物品和一个容量为w的背包。第i件物品的体积是weight[i]，价值是value[i]。求装入背包物品价值最大是多少。
- 解题思路：
+ 解题思路：(此问题没有要求恰好把背包装满)
      用子问题定义状态：即f[i][w]表示前i件物品恰放入一个容量为w的背包可以获得的最大价值。则其状态转移方程便是：
  f[i][w]=max{f[i-1][w],f[i-1][w-weight[i-1]]+value[i-1]}
  算法复杂度:时间和空间复杂度均为O(n*w)
@@ -43,5 +43,9 @@ public class Main {
             }
         }
         return f[n][w];
+    }
+    private static int zeroOnePack0(int n,int w, int[] weight,int[] value){
+
+        return 0;
     }
 }
