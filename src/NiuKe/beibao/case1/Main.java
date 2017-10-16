@@ -1,4 +1,4 @@
-package NiuKe.beibao;
+package NiuKe.beibao.case1;
 
 import java.util.Scanner;
 
