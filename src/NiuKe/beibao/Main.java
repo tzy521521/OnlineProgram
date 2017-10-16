@@ -40,7 +40,6 @@ public class Main {
                     //如果第i件的重量(weight[i-1])大于重量j时，第i件物品肯定不装进去。
                     f[i][j]=f[i-1][j];
                 }
-
             }
         }
         return f[n][w];
@@ -50,9 +49,11 @@ public class Main {
         可以发现0-1背包的状态转移方程 f[i][w]=max{f[i-1][w],f[i-1][w-weight[i-1]]+value[i-1]}的特点，
         当前状态仅依赖前一状态的剩余体积与当前物品体积v[i]的关系。
         可以将dp降到一维即f[j] = max{f[j]，f[j-weight[i]]+value[i]}
+        等号左边的f[j]是当前i的状态，右边中括号内的f[j]是第i-1状态下的值。
          */
         int[] f=new int[w+1];
         for (int i = 0; i <n ; i++) {
+            //只有当j >= weight[i],f[j]才能进行选取最大值,否则f[j]将不作更新，等于f[i-1][j]。
             for (int j = w; j >=weight[i]; j--) {
                 f[j]=Math.max(f[j],f[j-weight[i]]+value[i]);
             }
