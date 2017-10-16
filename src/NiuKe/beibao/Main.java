@@ -46,12 +46,17 @@ public class Main {
         return f[n][w];
     }
     private static int zeroOnePack0(int n,int w, int[] weight,int[] value){
-        int[] dp=new int[w+1];
+        /*
+        可以发现0-1背包的状态转移方程 f[i][w]=max{f[i-1][w],f[i-1][w-weight[i-1]]+value[i-1]}的特点，
+        当前状态仅依赖前一状态的剩余体积与当前物品体积v[i]的关系。
+        可以将dp降到一维即f[j] = max{f[j]，f[j-weight[i]]+value[i]}
+         */
+        int[] f=new int[w+1];
         for (int i = 0; i <n ; i++) {
             for (int j = w; j >=weight[i]; j--) {
-                dp[j]=Math.max(dp[j],dp[j-weight[i]]+value[i]);
+                f[j]=Math.max(f[j],f[j-weight[i]]+value[i]);
             }
         }
-        return dp[w];
+        return f[w];
     }
 }
