@@ -26,6 +26,7 @@ public class Main {
                 value[i] =scanner.nextInt();
             }
             System.out.println(zeroOnePack(n,w,weight,value));
+            System.out.println(zeroOnePack0(n,w,weight,value));
         }
     }
     private static int zeroOnePack(int n,int w, int[] weight,int[] value){
@@ -45,9 +46,12 @@ public class Main {
         return f[n][w];
     }
     private static int zeroOnePack0(int n,int w, int[] weight,int[] value){
+        int[] dp=new int[w+1];
         for (int i = 0; i <n ; i++) {
-
+            for (int j = w; j >=weight[i]; j--) {
+                dp[j]=Math.max(dp[j],dp[j-weight[i]]+value[i]);
+            }
         }
-        return 0;
+        return dp[w];
     }
 }
