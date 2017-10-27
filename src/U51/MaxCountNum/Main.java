@@ -1,10 +1,10 @@
-package u51.MaxCountWord;
+package U51.MaxCountNum;
 
 import java.util.Scanner;
 
 /**
  * Created by tzy on 2017/10/18
- * n个小写字符串中出现次数最多的字符串.(如果存在多个，按照字典顺序输出最小的那个。)
+ * n个数字串中出现次数最多的数字串.(如果存在多个，输出最小的那个。)
  */
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Main {
     }
     private TrieNode root = new TrieNode();// 字典树的根节点
     private int max;// 统计出现的最大次数
-    private String maxWord;// 出现最大次数的字符串
+    private String maxWord;// 出现最大次数的数字串
     // 返回出现次数最大的单词
     public String maxCountWord() {
         return maxWord;
@@ -39,8 +39,8 @@ public class Main {
             }
         } else {
             char c = word.charAt(0);
-            c = Character.toLowerCase(c);
-            int index = c -'a';
+            //c = Character.toLowerCase(c);
+            int index = c -'0';
             if (vertex.edges[index] == null) { // 构建节点的路径
                 vertex.edges[index] = new TrieNode();
             }
@@ -54,7 +54,7 @@ public class Main {
 
         public TrieNode() {
             this.words = 0;
-            edges = new TrieNode[26];// 题目对于字符没有做出限制，这里默认全是小写字母
+            edges = new TrieNode[10];// 题目对于字符没有做出限制，这里默认全是数字
             for (int i = 0; i < edges.length; i++) {
                 edges[i] = null;
             }

@@ -1,4 +1,4 @@
-package u51.MultiplyStrings;
+package U51.MultiplyStrings;
 
 import java.util.Scanner;
 
