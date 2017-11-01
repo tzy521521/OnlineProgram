@@ -48,7 +48,7 @@ public class Main {
         int count=0;//T中的节点个数
 
         while (count<n){
-            int currentMinCost=Integer.MIN_VALUE;
+            int currentMinCost=Integer.MAX_VALUE;
             int u=-1;
             for (int i = 0; i <n ; i++) {
                 //在V-T中找到最小开销的定点u,初始时-1;
