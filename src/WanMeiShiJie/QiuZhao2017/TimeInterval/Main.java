@@ -1,4 +1,4 @@
-package WanMeiShiJie.QiuZhao2017.sdf;
+package WanMeiShiJie.QiuZhao2017.TimeInterval;
 
 import java.util.Scanner;
 
