@@ -20,8 +20,9 @@ public class Main {
         }
     }
     public static int total(int[] zuixing,int c,int t){
-        if (c>zuixing.length)
+        if (c>zuixing.length){
             return 0;
+        }
         int low=0;int height=c-1;
         int sum=0;int num=0;
         for (int i = low; i <height ; i++) {
@@ -29,8 +30,9 @@ public class Main {
         }
         for (int i = height; i <zuixing.length ; i++) {
             sum+=zuixing[i];
-            if (sum<t)
+            if (sum<t){
                 num++;
+            }
             else {
                 sum-=zuixing[low];
                 low++;
