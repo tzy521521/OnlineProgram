@@ -1,4 +1,4 @@
-package WanMeiShiJie.QiuZhao2017.sdfsfg;
+package WanMeiShiJie.QiuZhao2017.minAndMaxStack;
 
 import java.util.Scanner;
 import java.util.Stack;
