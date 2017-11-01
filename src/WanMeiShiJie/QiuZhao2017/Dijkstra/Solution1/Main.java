@@ -5,7 +5,8 @@ import java.util.Scanner;
 /**
  * Created by tzy on 2017/11/1.
  * Dijkstra(迪杰斯特拉)单源最短路径,邻接矩阵实现。
- * 求出p点到其他节点(顺序从0到n)的距离，
+ * 求出p点到其他节点(顺序从0到n)的距离。
+ * @author lp
  */
 public class Main {
     private static int MAX = Integer.MAX_VALUE;
@@ -47,27 +48,33 @@ public class Main {
             for(int i=0;i<n;i++) {
                 if(s[i] == -1) {
                     if(dist[u]!=MAX && weight[u][i]!=MAX) {
-                        if(dist[u]+weight[u][i] < dist[i])
+                        if(dist[u]+weight[u][i] < dist[i]){
                             dist[i] = dist[u]+weight[u][i];
+                        }
                     }
                 }
             }
         }
         for(int j=0;j<n;j++) {
-            if (p!=j)
+            if (p!=j){
                 System.out.print(dist[j]);
-            if (j < n-1 && j >0) System.out.print(",");
+            }
+            if (j < n-1 && j >0) {
+                System.out.print(",");
+            }
         }
         System.out.println();
     }
     private static int min(int[] dist, int[] small) {
         int min = 0;
         for (int i = 0; i < dist.length; i++) {
-            while (small[min] != -1)
+            while (small[min] != -1){
                 min++;
+            }
             if (small[i] == -1) {
-                if (dist[i] < dist[min])
+                if (dist[i] < dist[min]){
                     min = i;
+                }
             }
         }
         return min;
